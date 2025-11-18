@@ -1,6 +1,6 @@
-/* Contact Input Form Styles */
+/* 取引先責任者入力フォームスタイル */
 
-/* Alert styling */
+/* アラートスタイル */
 .slds-notify {
     margin-bottom: 1rem;
     border-radius: 0.25rem;
@@ -16,12 +16,12 @@
     color: white;
 }
 
-/* Form section spacing */
+/* フォームセクションの間隔 */
 form {
     max-width: 800px;
 }
 
-/* Responsive adjustments */
+/* レスポンシブ調整 */
 @media (max-width: 768px) {
     .slds-col {
         padding-left: 0;
@@ -29,19 +29,19 @@ form {
     }
 }
 
-/* Input field focus styling */
+/* 入力フィールドのフォーカススタイル */
 lightning-input:focus-within,
 lightning-textarea:focus-within {
     outline: none;
 }
 
-/* Button group alignment */
+/* ボタングループの配置 */
 .slds-m-top_large {
     display: flex;
     align-items: center;
 }
 
-/* Success/Error message styling */
+/* 成功/エラーメッセージのスタイル */
 .slds-notify h2 {
     font-size: 0.875rem;
     font-weight: 400;
@@ -49,7 +49,7 @@ lightning-textarea:focus-within {
     display: inline-block;
 }
 
-/* Loading spinner container */
+/* ローディングスピナーコンテナ */
 .slds-m-top_medium {
     text-align: center;
 }

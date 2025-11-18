@@ -1,7 +1,7 @@
 <template>
     <lightning-card title="Contact Input Form" icon-name="standard:contact">
         <div class="slds-p-around_medium">
-            <!-- Success Message -->
+            <!-- 成功メッセージ -->
             <template if:true={showSuccess}>
                 <div class="slds-notify slds-notify_alert slds-alert_success" role="alert">
                     <span class="slds-assistive-text">success</span>
@@ -14,7 +14,7 @@
                 </div>
             </template>
 
-            <!-- Error Message -->
+            <!-- エラーメッセージ -->
             <template if:true={showError}>
                 <div class="slds-notify slds-notify_alert slds-alert_error slds-m-bottom_medium" role="alert">
                     <span class="slds-assistive-text">error</span>
@@ -28,7 +28,7 @@
             </template>
 
             <form onsubmit={handleSubmit}>
-                <!-- Name Section -->
+                <!-- 名前セクション -->
                 <div class="slds-grid slds-gutters slds-wrap">
                     <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
                         <lightning-input
@@ -52,7 +52,7 @@
                     </div>
                 </div>
 
-                <!-- Title -->
+                <!-- 役職 -->
                 <div class="slds-m-top_small">
                     <lightning-input
                         name="title"
@@ -63,7 +63,7 @@
                     </lightning-input>
                 </div>
 
-                <!-- Contact Information -->
+                <!-- 連絡先情報 -->
                 <div class="slds-grid slds-gutters slds-wrap slds-m-top_small">
                     <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
                         <lightning-input
@@ -88,7 +88,7 @@
                     </div>
                 </div>
 
-                <!-- Mobile and Department -->
+                <!-- 携帯電話と部門 -->
                 <div class="slds-grid slds-gutters slds-wrap slds-m-top_small">
                     <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
                         <lightning-input
@@ -111,7 +111,7 @@
                     </div>
                 </div>
 
-                <!-- Account Lookup -->
+                <!-- 取引先ルックアップ -->
                 <div class="slds-m-top_small">
                     <lightning-input-field
                         field-name="AccountId"
@@ -119,7 +119,7 @@
                     </lightning-input-field>
                 </div>
 
-                <!-- Description -->
+                <!-- 説明 -->
                 <div class="slds-m-top_small">
                     <lightning-textarea
                         name="description"
@@ -131,7 +131,7 @@
                     </lightning-textarea>
                 </div>
 
-                <!-- Buttons -->
+                <!-- ボタン -->
                 <div class="slds-m-top_large">
                     <lightning-button
                         variant="brand"
@@ -150,7 +150,7 @@
                     </lightning-button>
                 </div>
 
-                <!-- Loading Spinner -->
+                <!-- ローディングスピナー -->
                 <template if:true={isSaving}>
                     <div class="slds-m-top_medium">
                         <lightning-spinner alternative-text="Saving" size="small"></lightning-spinner>

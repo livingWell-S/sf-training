@@ -12,13 +12,13 @@ import DEPARTMENT_FIELD from '@salesforce/schema/Contact.Department';
 import DESCRIPTION_FIELD from '@salesforce/schema/Contact.Description';
 
 /**
- * Contact Input Form Component
- * A comprehensive form for creating new Contact records with validation
- * Features:
- * - Input validation
- * - Success/Error messaging
- * - Form reset functionality
- * - Loading states
+ * 取引先責任者入力フォームコンポーネント
+ * バリデーション機能を備えた新規取引先責任者レコード作成用の包括的なフォーム
+ * 機能:
+ * - 入力バリデーション
+ * - 成功/エラーメッセージ表示
+ * - フォームリセット機能
+ * - ローディング状態表示
  */
 export default class ContactInputForm extends LightningElement {
     @track firstName = '';
@@ -36,17 +36,17 @@ export default class ContactInputForm extends LightningElement {
     @track errorMessage = '';
 
     /**
-     * Handle input field changes
-     * @param {Event} event - The input change event
+     * 入力フィールドの変更を処理
+     * @param {Event} event - 入力変更イベント
      */
     handleInputChange(event) {
         const field = event.target.name;
         const value = event.target.value;
 
-        // Update the corresponding field
+        // 対応するフィールドを更新
         this[field] = value;
 
-        // Clear messages when user starts typing
+        // ユーザーが入力を開始したらメッセージをクリア
         if (this.showSuccess || this.showError) {
             this.showSuccess = false;
             this.showError = false;
@@ -54,13 +54,13 @@ export default class ContactInputForm extends LightningElement {
     }
 
     /**
-     * Handle form submission
-     * @param {Event} event - The form submit event
+     * フォーム送信を処理
+     * @param {Event} event - フォーム送信イベント
      */
     handleSubmit(event) {
         event.preventDefault();
 
-        // Validate all required fields
+        // すべての必須フィールドをバリデーション
         if (!this.validateForm()) {
             return;
         }
@@ -69,12 +69,12 @@ export default class ContactInputForm extends LightningElement {
         this.showSuccess = false;
         this.showError = false;
 
-        // Prepare the record input
+        // レコード入力を準備
         const fields = {};
         fields[FIRSTNAME_FIELD.fieldApiName] = this.firstName;
         fields[LASTNAME_FIELD.fieldApiName] = this.lastName;
 
-        // Add optional fields only if they have values
+        // 値がある場合のみオプションフィールドを追加
         if (this.title) fields[TITLE_FIELD.fieldApiName] = this.title;
         if (this.email) fields[EMAIL_FIELD.fieldApiName] = this.email;
         if (this.phone) fields[PHONE_FIELD.fieldApiName] = this.phone;
@@ -84,26 +84,26 @@ export default class ContactInputForm extends LightningElement {
 
         const recordInput = { apiName: CONTACT_OBJECT.objectApiName, fields };
 
-        // Create the record
+        // レコードを作成
         createRecord(recordInput)
             .then(contact => {
                 this.isSaving = false;
                 this.showSuccess = true;
-                this.successMessage = `Contact "${this.firstName} ${this.lastName}" created successfully!`;
+                this.successMessage = `取引先責任者「${this.firstName} ${this.lastName}」を正常に作成しました！`;
 
-                // Show toast notification
+                // トースト通知を表示
                 this.dispatchEvent(
                     new ShowToastEvent({
-                        title: 'Success',
-                        message: 'Contact created successfully',
+                        title: '成功',
+                        message: '取引先責任者を正常に作成しました',
                         variant: 'success'
                     })
                 );
 
-                // Clear the form after successful save
+                // 保存成功後にフォームをクリア
                 this.handleClear();
 
-                // Keep success message visible for a few seconds
+                // 成功メッセージを数秒間表示
                 setTimeout(() => {
                     this.showSuccess = false;
                 }, 5000);
@@ -113,10 +113,10 @@ export default class ContactInputForm extends LightningElement {
                 this.showError = true;
                 this.errorMessage = this.extractErrorMessage(error);
 
-                // Show toast notification
+                // トースト通知を表示
                 this.dispatchEvent(
                     new ShowToastEvent({
-                        title: 'Error creating contact',
+                        title: '取引先責任者作成エラー',
                         message: this.errorMessage,
                         variant: 'error'
                     })
@@ -125,8 +125,8 @@ export default class ContactInputForm extends LightningElement {
     }
 
     /**
-     * Validate form inputs
-     * @returns {boolean} True if form is valid
+     * フォーム入力をバリデーション
+     * @returns {boolean} フォームが有効な場合true
      */
     validateForm() {
         const allValid = [...this.template.querySelectorAll('lightning-input')]
@@ -137,14 +137,14 @@ export default class ContactInputForm extends LightningElement {
 
         if (!allValid) {
             this.showError = true;
-            this.errorMessage = 'Please complete all required fields correctly.';
+            this.errorMessage = '必須フィールドをすべて正しく入力してください。';
         }
 
         return allValid;
     }
 
     /**
-     * Clear all form fields
+     * すべてのフォームフィールドをクリア
      */
     handleClear() {
         this.firstName = '';
@@ -158,7 +158,7 @@ export default class ContactInputForm extends LightningElement {
         this.showSuccess = false;
         this.showError = false;
 
-        // Reset validation on all inputs
+        // すべての入力のバリデーションをリセット
         const inputs = this.template.querySelectorAll('lightning-input, lightning-textarea');
         if (inputs) {
             inputs.forEach(input => {
@@ -168,9 +168,9 @@ export default class ContactInputForm extends LightningElement {
     }
 
     /**
-     * Extract error message from error object
-     * @param {Object} error - The error object
-     * @returns {string} The error message
+     * エラーオブジェクトからエラーメッセージを抽出
+     * @param {Object} error - エラーオブジェクト
+     * @returns {string} エラーメッセージ
      */
     extractErrorMessage(error) {
         if (error.body) {
@@ -187,6 +187,6 @@ export default class ContactInputForm extends LightningElement {
                 }
             }
         }
-        return 'An unknown error occurred. Please try again.';
+        return '不明なエラーが発生しました。もう一度お試しください。';
     }
 }
