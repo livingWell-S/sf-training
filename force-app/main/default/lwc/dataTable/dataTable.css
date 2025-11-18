@@ -1,0 +1,41 @@
+/**
+ * データテーブルコンポーネントのスタイル
+ */
+
+/* 検索入力フィールドのスタイル */
+.search-input {
+    width: 100%;
+}
+
+/* レスポンシブデザイン：モバイル画面でのスタイル調整 */
+@media (max-width: 768px) {
+    .slds-grid.slds-gutters {
+        margin: 0;
+    }
+
+    .slds-col {
+        padding: 0.25rem;
+    }
+}
+
+/* データテーブルのカスタムスタイル */
+lightning-datatable {
+    --slds-c-datatable-heading-color: #032d60;
+    --slds-c-datatable-row-hover-color: #f3f3f3;
+}
+
+/* ページネーション情報のスタイル */
+.slds-text-body_small {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+}
+
+/* ボタングループの間隔調整 */
+lightning-button-group {
+    display: inline-flex;
+}
+
+/* バッジのスタイル調整 */
+lightning-badge {
+    font-weight: 600;
+}
