@@ -1,0 +1,55 @@
+/* Contact Input Form Styles */
+
+/* Alert styling */
+.slds-notify {
+    margin-bottom: 1rem;
+    border-radius: 0.25rem;
+}
+
+.slds-alert_success {
+    background-color: #4bca81;
+    color: white;
+}
+
+.slds-alert_error {
+    background-color: #ea001e;
+    color: white;
+}
+
+/* Form section spacing */
+form {
+    max-width: 800px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .slds-col {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+/* Input field focus styling */
+lightning-input:focus-within,
+lightning-textarea:focus-within {
+    outline: none;
+}
+
+/* Button group alignment */
+.slds-m-top_large {
+    display: flex;
+    align-items: center;
+}
+
+/* Success/Error message styling */
+.slds-notify h2 {
+    font-size: 0.875rem;
+    font-weight: 400;
+    margin: 0;
+    display: inline-block;
+}
+
+/* Loading spinner container */
+.slds-m-top_medium {
+    text-align: center;
+}
