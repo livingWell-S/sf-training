@@ -1,0 +1,97 @@
+<template>
+    <lightning-card title="Contact Information" icon-name="standard:contact">
+        <template if:true={contact.data}>
+            <div class="slds-p-around_medium">
+                <div class="slds-grid slds-gutters slds-wrap">
+                    <!-- Name Section -->
+                    <div class="slds-col slds-size_1-of-1 slds-m-bottom_small">
+                        <div class="slds-text-heading_medium slds-m-bottom_x-small">
+                            {fullName}
+                        </div>
+                        <template if:true={title}>
+                            <div class="slds-text-body_regular slds-text-color_weak">
+                                {title}
+                            </div>
+                        </template>
+                    </div>
+
+                    <!-- Contact Details -->
+                    <div class="slds-col slds-size_1-of-1 slds-size_1-of-2-medium">
+                        <dl class="slds-list_horizontal slds-wrap">
+                            <template if:true={email}>
+                                <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Email">
+                                    <lightning-icon icon-name="utility:email" size="xx-small" class="slds-m-right_x-small"></lightning-icon>
+                                    Email:
+                                </dt>
+                                <dd class="slds-item_detail slds-truncate" title={email}>
+                                    <a href={emailLink}>{email}</a>
+                                </dd>
+                            </template>
+
+                            <template if:true={phone}>
+                                <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Phone">
+                                    <lightning-icon icon-name="utility:phone" size="xx-small" class="slds-m-right_x-small"></lightning-icon>
+                                    Phone:
+                                </dt>
+                                <dd class="slds-item_detail slds-truncate" title={phone}>
+                                    <a href={phoneLink}>{phone}</a>
+                                </dd>
+                            </template>
+
+                            <template if:true={mobilePhone}>
+                                <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Mobile">
+                                    <lightning-icon icon-name="utility:mobile" size="xx-small" class="slds-m-right_x-small"></lightning-icon>
+                                    Mobile:
+                                </dt>
+                                <dd class="slds-item_detail slds-truncate" title={mobilePhone}>
+                                    <a href={mobileLink}>{mobilePhone}</a>
+                                </dd>
+                            </template>
+                        </dl>
+                    </div>
+
+                    <!-- Account Information -->
+                    <div class="slds-col slds-size_1-of-1 slds-size_1-of-2-medium">
+                        <dl class="slds-list_horizontal slds-wrap">
+                            <template if:true={accountName}>
+                                <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Account">
+                                    <lightning-icon icon-name="standard:account" size="xx-small" class="slds-m-right_x-small"></lightning-icon>
+                                    Account:
+                                </dt>
+                                <dd class="slds-item_detail slds-truncate" title={accountName}>
+                                    {accountName}
+                                </dd>
+                            </template>
+
+                            <template if:true={department}>
+                                <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Department">
+                                    <lightning-icon icon-name="utility:company" size="xx-small" class="slds-m-right_x-small"></lightning-icon>
+                                    Department:
+                                </dt>
+                                <dd class="slds-item_detail slds-truncate" title={department}>
+                                    {department}
+                                </dd>
+                            </template>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <template if:true={contact.error}>
+            <div class="slds-p-around_medium">
+                <div class="slds-text-color_error">
+                    Error loading contact: {contact.error.body.message}
+                </div>
+            </div>
+        </template>
+
+        <template if:false={contact.data}>
+            <template if:false={contact.error}>
+                <div class="slds-p-around_medium">
+                    <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+                </div>
+            </template>
+        </template>
+    </lightning-card>
+</template>
