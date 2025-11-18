@@ -3,7 +3,7 @@
         <template if:true={contact.data}>
             <div class="slds-p-around_medium">
                 <div class="slds-grid slds-gutters slds-wrap">
-                    <!-- Name Section -->
+                    <!-- 名前セクション -->
                     <div class="slds-col slds-size_1-of-1 slds-m-bottom_small">
                         <div class="slds-text-heading_medium slds-m-bottom_x-small">
                             {fullName}
@@ -15,7 +15,7 @@
                         </template>
                     </div>
 
-                    <!-- Contact Details -->
+                    <!-- 連絡先詳細 -->
                     <div class="slds-col slds-size_1-of-1 slds-size_1-of-2-medium">
                         <dl class="slds-list_horizontal slds-wrap">
                             <template if:true={email}>
@@ -50,7 +50,7 @@
                         </dl>
                     </div>
 
-                    <!-- Account Information -->
+                    <!-- 取引先情報 -->
                     <div class="slds-col slds-size_1-of-1 slds-size_1-of-2-medium">
                         <dl class="slds-list_horizontal slds-wrap">
                             <template if:true={accountName}>
