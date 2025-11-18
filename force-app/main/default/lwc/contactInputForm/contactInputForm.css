@@ -1,0 +1,55 @@
+/* 取引先責任者入力フォームスタイル */
+
+/* アラートスタイル */
+.slds-notify {
+    margin-bottom: 1rem;
+    border-radius: 0.25rem;
+}
+
+.slds-alert_success {
+    background-color: #4bca81;
+    color: white;
+}
+
+.slds-alert_error {
+    background-color: #ea001e;
+    color: white;
+}
+
+/* フォームセクションの間隔 */
+form {
+    max-width: 800px;
+}
+
+/* レスポンシブ調整 */
+@media (max-width: 768px) {
+    .slds-col {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+/* 入力フィールドのフォーカススタイル */
+lightning-input:focus-within,
+lightning-textarea:focus-within {
+    outline: none;
+}
+
+/* ボタングループの配置 */
+.slds-m-top_large {
+    display: flex;
+    align-items: center;
+}
+
+/* 成功/エラーメッセージのスタイル */
+.slds-notify h2 {
+    font-size: 0.875rem;
+    font-weight: 400;
+    margin: 0;
+    display: inline-block;
+}
+
+/* ローディングスピナーコンテナ */
+.slds-m-top_medium {
+    text-align: center;
+}

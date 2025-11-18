@@ -1,7 +1,7 @@
 import { LightningElement, api, wire } from 'lwc';
 import { getRecord, getFieldValue } from 'lightning/uiRecordApi';
 
-// Contact fields to retrieve
+// 取得する取引先責任者のフィールド
 const FIELDS = [
     'Contact.FirstName',
     'Contact.LastName',
@@ -14,9 +14,9 @@ const FIELDS = [
 ];
 
 /**
- * Contact Card Component
- * Displays contact information in a clean card layout
- * Can be placed on Contact record pages or used with recordId input
+ * 取引先責任者カードコンポーネント
+ * 取引先責任者情報をきれいなカードレイアウトで表示
+ * 取引先責任者レコードページに配置するか、recordId入力で使用可能
  */
 export default class ContactCard extends LightningElement {
     @api recordId;
@@ -25,7 +25,7 @@ export default class ContactCard extends LightningElement {
     contact;
 
     /**
-     * Get full name of contact
+     * 取引先責任者のフルネームを取得
      */
     get fullName() {
         const firstName = getFieldValue(this.contact.data, 'Contact.FirstName');
@@ -34,63 +34,63 @@ export default class ContactCard extends LightningElement {
     }
 
     /**
-     * Get contact title
+     * 取引先責任者の役職を取得
      */
     get title() {
         return getFieldValue(this.contact.data, 'Contact.Title');
     }
 
     /**
-     * Get contact email
+     * 取引先責任者のメールアドレスを取得
      */
     get email() {
         return getFieldValue(this.contact.data, 'Contact.Email');
     }
 
     /**
-     * Get mailto link for email
+     * メールアドレスのmailtoリンクを取得
      */
     get emailLink() {
         return this.email ? `mailto:${this.email}` : '';
     }
 
     /**
-     * Get contact phone
+     * 取引先責任者の電話番号を取得
      */
     get phone() {
         return getFieldValue(this.contact.data, 'Contact.Phone');
     }
 
     /**
-     * Get tel link for phone
+     * 電話番号のtelリンクを取得
      */
     get phoneLink() {
         return this.phone ? `tel:${this.phone}` : '';
     }
 
     /**
-     * Get contact mobile phone
+     * 取引先責任者の携帯電話番号を取得
      */
     get mobilePhone() {
         return getFieldValue(this.contact.data, 'Contact.MobilePhone');
     }
 
     /**
-     * Get tel link for mobile phone
+     * 携帯電話番号のtelリンクを取得
      */
     get mobileLink() {
         return this.mobilePhone ? `tel:${this.mobilePhone}` : '';
     }
 
     /**
-     * Get account name
+     * 取引先名を取得
      */
     get accountName() {
         return getFieldValue(this.contact.data, 'Contact.Account.Name');
     }
 
     /**
-     * Get department
+     * 部門を取得
      */
     get department() {
         return getFieldValue(this.contact.data, 'Contact.Department');
